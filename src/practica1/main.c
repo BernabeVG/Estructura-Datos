@@ -10,7 +10,6 @@
 
 int main(void)
 {
-
 	Lista lista  = inicializarLista();
 	/*int i =3;
 	while(i--)
@@ -29,36 +28,41 @@ int main(void)
 	eliminarLista(&lista,free);*/
 
 	int opc;
+	do{
+		printf("\n    ---MENU---");
+		printf("\n1. Registrar Alumno");
+		printf("\n2. Desplegar Alumnos");
+		printf("\n3. Reordenar");
+		printf("\n4. Buscar Alumno");
+		printf("\n5. Salir del programa");
+		printf("\nSeleccione una opcion: ");
+		scanf("%d", &opc);
 
-	printf("    ---MENU---");
-	printf("\n1. Registrar Alumno");
-	printf("\n2. Desplegar Alumnos");
-	printf("\n3. Reordenar");
-	printf("\n4. Buscar Alumno");
-	printf("\n5. Salir del programa");
-	printf("\nSeleccioe una opcion: ");
-	scanf("%d", &opc);
+		switch (opc) {
+			case 1:
+			{
+				size_t mat = 0;
+				printf("\nIngresa la matricula: ");
+				scanf("%u", (unsigned int*)&mat);
+				insertarFinal(&lista, crearAlumno(mat));
+				break;
+			}
 
-	switch (opc) {
-		case 1: {
-			size_t mat = 0;
-			printf("\nIngresa la matricula: ");
-			scanf("%u", (unsigned int*)&mat);
-			insertarFinal(&lista, crearAlumno(mat));
-			break;
+			case 2:
+				imprimirLista(lista,imprimirAlumno);
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+
+			case 5:
+				printf("\nSaliendo del programa...");
+				break;
+			default:
+				printf("\nOpcion invalida. intentelo de nuevo.");
+				break;
 		}
-
-		case 2:
-			break;
-
-		case 3:
-			break;
-
-		case 4:
-			break;
-
-		case 5:
-			break;
-	}
+	}while (opc!=5);
 	return 0;
 }
