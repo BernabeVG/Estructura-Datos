@@ -1,7 +1,7 @@
 cflags = -Wall -Werror -std=c99 -O2
 includes = -I ../iostring -I ../datastructures/nodo -I ../datastructures/lista
-libs = ../../lib -liostring -lLista 
-source = $(wildcard *.c) 
+libs = ../../lib -liostring -lLista
+source = $(wildcard *.c)
 output = ../../bin/practica1
 
 build :

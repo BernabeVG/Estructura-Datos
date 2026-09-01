@@ -1,11 +1,16 @@
 #include "alumno.h"
+#include <stdlib.h>
+
+#include "../datastructures/lista/Lista.h"
+#include "../iostring/iostring.h"
 
 
 Alumno *crearAlumno(size_t matricula)
 {
 	Alumno *nuevo = calloc(1,sizeof(Alumno));
 	nuevo->matricula = matricula;
-	inputCadena("Captura nombre: ",nuevo->nombre,MAX);
+	clear_buffer();
+	inputCadena("Captura cadena: ",nuevo->nombre,MAX);
 	inputEntero("Captura semestre: ",&nuevo->semestre);
 	inputFloat("Captura promedio: ",&nuevo->promedio);
 	return nuevo;
@@ -21,19 +26,27 @@ void imprimirAlumno(void *a)
 	printf("%.2f | ",alumno.promedio);
 }
 
-int compararMatricula(void *a, void *b)
+/*int compararMatricula(void *a, void *b)
 {
-	return 0;
+
+	Lista alumno = inicializarLista();
+
+
+	if ((size_t * )a == (size_t * )b) {
+		strcmp(a,b);
+		return 1;
+	}
 }
 int compararNombre(void *a, void *b)
 {
-	return 0;	
-}
+	strcmpIC(a,b);
+
 int compararSemestre(void *a, void *b)
 {
-	return 0;
+
 }
 int compararCompararPromedio(void *a, void *b)
 {
-	return 0;	
+
 }
+*/
