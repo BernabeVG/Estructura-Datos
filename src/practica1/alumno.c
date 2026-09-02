@@ -20,7 +20,7 @@ Alumno *crearAlumno(size_t matricula)
 void imprimirAlumno(void *a)
 {	
 	Alumno alumno = *(Alumno*)a;
-	printf("%-8u | ",alumno.matricula);
+	printf("%-8zu | ",alumno.matricula);
 	printf("%-20s | ",alumno.nombre);
 	printf("%3d | ",alumno.semestre);
 	printf("%.2f | ",alumno.promedio);

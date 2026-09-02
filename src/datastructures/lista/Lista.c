@@ -16,7 +16,7 @@ void imprimirLista(Lista lista,fn_imprimir imprimir)
 		printf("\n Lista vacia");
 		return;
 	}	
-	printf("\n [CANT %u]Lista: \n",lista.cant);
+	printf("\n [CANT %lu]Lista: \n",lista.cant);
 	aux = lista.inicio;
 	while( aux )
 	{
