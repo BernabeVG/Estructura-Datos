@@ -52,6 +52,8 @@ int main(void)
 				imprimirLista(lista,imprimirAlumno);
 				break;
 			case 3:
+				compararMatricula(lista.inicio,lista.inicio->sig);
+				compararNombre(lista.inicio,lista.inicio->sig);
 				break;
 			case 4:
 				break;
