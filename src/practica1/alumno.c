@@ -67,7 +67,7 @@ int compararCompararPromedio(void *a, void *b) {
 	}
 	return 0; //retorna en caso de ser iguales
 }
-void gitreordenarAlumno(Alumno *alumno,int opcion) {
+void gitBBreordenarAlumno(Alumno *alumno,int opcion) {
 
 
 	if (!alumno) {
