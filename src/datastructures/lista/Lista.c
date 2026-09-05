@@ -109,4 +109,3 @@ void ordenarLista(Lista *lista,fn_comparar comparar,Orden orden)
 	}
 }
 
-//nueva funcion

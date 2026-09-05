@@ -41,7 +41,7 @@ int compararNombre(void *a, void *b) {
 	Alumno alumnoA = *(Alumno*)a;
 	Alumno alumnoB = *(Alumno*)b;
 
-	strcmpIC(alumnoA.nombre,alumnoB.nombre);
+	return strcmpIC(alumnoA.nombre,alumnoB.nombre);
 }
 int compararSemestre(void *a, void *b) {
 	Alumno alumnoA = *(Alumno*)a;
@@ -59,39 +59,39 @@ int compararCompararPromedio(void *a, void *b) {
 	Alumno alumnoA = *(Alumno*)a;
 	Alumno alumnoB = *(Alumno*)b;
 
-	if (alumnoA.semestre > alumnoB.semestre) {
+	if (alumnoA.promedio > alumnoB.promedio) {
 		return 1;
 	}
-	if (alumnoA.semestre < alumnoB.semestre) {
+	if (alumnoA.promedio < alumnoB.promedio) {
 		return -1;
 	}
 	return 0; //retorna en caso de ser iguales
 }
-void gitBBreordenarAlumno(Alumno *alumno,int opcion) {
+void ordenarAlumno(void *a, void *b)
+{
+	Lista lista = *(Lista*)a;
+	int opcion = *(int*)b;
 
-
-	if (!alumno) {
+	if (!lista.inicio)
+	{
 		return;
 	}
 
-	if (opcion == 1) { //Ordenar por nombre
-
+	if (opcion == 1)
+	{ //Ordenar por nombre
+		ordenarLista(&lista, compararNombre, ASCENDENTE);
 	}
-	if (opcion ==2 ) { //ordenar por matricula
-
+	if (opcion ==2 )
+	{ //ordenar por matricula
+		ordenarLista(&lista, compararMatricula, ASCENDENTE);
 	}
-	if (opcion == 3) { //ordenar por semestre
-
+	if (opcion == 3)
+	{
+		//ordenar por semestre
+		ordenarLista(&lista, compararSemestre, ASCENDENTE);
 	}
-	if (opcion == 4 ) { //ordenar por promedio
-		for (Nodo *i =alumno->promedio;i!=NULL;i=i->sig) {
-			for (Nodo *j =i->sig;j!=NULL;j=j->sig) {
-				if (i->sig > j->sig) {
-
-
-				}
-			}
-		}
+	if (opcion == 4)
+	{ // Ordenar por promedio
+			ordenarLista(&lista, compararCompararPromedio, ASCENDENTE);
 	}
-
 }

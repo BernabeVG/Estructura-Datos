@@ -22,5 +22,6 @@ int compararMatricula(void*,void*);
 int compararNombre(void*,void*);
 int compararSemestre(void*,void*);
 int compararCompararPromedio(void*,void*);
+void ordenarAlumno(void *a, void *b);
 
 #endif

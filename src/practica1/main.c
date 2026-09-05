@@ -52,8 +52,14 @@ int main(void)
 				imprimirLista(lista,imprimirAlumno);
 				break;
 			case 3:
-				compararMatricula(lista.inicio,lista.inicio->sig);
-				compararNombre(lista.inicio,lista.inicio->sig);
+				printf("\nOrdenacion de alumno");
+				printf("\n1. Nombre");
+				printf("\n2. Matricula");
+				printf("\n3. Semestre");
+				printf("\n4. Promedio");
+				printf("\nSeleccione una opcion: ");
+				scanf("%d", &opc);
+				ordenarAlumno(&lista, &opc);
 				break;
 			case 4:
 				break;
