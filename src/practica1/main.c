@@ -74,8 +74,15 @@ int main(void)
 				break;
 
 			case 5:
+				printf("\nBorrar alumno por?");
+				printf("\n1. Nombre");
+				printf("\n2. Matricula");
+				printf("\n3. Semestre");
+				printf("\n4. Promedio");
+				printf("\nSeleccione una opcion: ");
+				scanf("%d", &opc);
+				borrarAlumno(&lista, &opc);
 				break;
-
 			case 6:
 				printf("\nSaliendo del programa...");
 				break;
@@ -83,6 +90,6 @@ int main(void)
 				printf("\nOpcion invalida. intentelo de nuevo.");
 				break;
 		}
-	}while (opc!=5);
+	}while (opc!=6);
 	return 0;
 }

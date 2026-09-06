@@ -99,7 +99,7 @@ void buscarAlumno(void *a, void *b) {
 	Lista lista= *(Lista*)a;;
 	int opcion = *(int*)b;
 	Alumno alumno;
-	fn_comparar comparar;
+	fn_comparar comparar=NULL;
 
 	if (!lista.inicio) {
 		return;
@@ -145,4 +145,55 @@ void buscarAlumno(void *a, void *b) {
 		}
 		actual = actual->sig;
 	}
+}
+void borrarAlumno(void *a, void *b)
+{
+	Lista *lista = (Lista *)a;
+	int opcion = *(int*)b;
+	Alumno alumno;
+	fn_comparar comparar=NULL;
+
+	if (!lista->inicio) {
+		return;
+	}
+
+	if (opcion == 1)
+	{ //buscar por nombre
+
+		printf("Ingrese nombre del alumno: ");
+		scanf("%s", alumno.nombre);
+		comparar = compararNombre;
+	}
+	if (opcion ==2 )
+	{ //buscar por matricula
+		printf("Ingrese matricula del alumno: ");
+		scanf("%zu", &alumno.matricula);
+		comparar = compararMatricula;
+	}
+	if (opcion == 3)
+	{
+		//buscar por semestre
+		printf("Ingrese semestre del alumno: ");
+		scanf("%d", &alumno.semestre);
+		comparar = compararSemestre;
+	}
+	if (opcion == 4)
+	{ // buscar por promedio
+		printf("Ingrese promedio del alumno: ");
+		scanf("%f", &alumno.promedio);
+		comparar = compararCompararPromedio;
+	}
+
+	size_t cant_anterior = lista->cant;
+	eliminarDato(lista, &alumno, comparar);
+
+	if (lista->cant < cant_anterior)
+	{
+		printf("Alumno borrado con exito.");
+	}
+	else
+	{
+		printf("\nEl alumno con ese dato no existe.");
+	}
+	printf("\n");
 }
