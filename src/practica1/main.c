@@ -34,7 +34,8 @@ int main(void)
 		printf("\n2. Desplegar Alumnos");
 		printf("\n3. Reordenar");
 		printf("\n4. Buscar Alumno");
-		printf("\n5. Salir del programa");
+		printf("\n5. Borrar alumno");
+		printf("\n6. Salir del programa");
 		printf("\nSeleccione una opcion: ");
 		scanf("%d", &opc);
 
@@ -62,9 +63,20 @@ int main(void)
 				ordenarAlumno(&lista, &opc);
 				break;
 			case 4:
+				printf("\nBuscar alumno por?");
+				printf("\n1. Nombre");
+				printf("\n2. Matricula");
+				printf("\n3. Semestre");
+				printf("\n4. Promedio");
+				printf("\nSeleccione una opcion: ");
+				scanf("%d", &opc);
+				buscarAlumno(&lista, &opc);
 				break;
 
 			case 5:
+				break;
+
+			case 6:
 				printf("\nSaliendo del programa...");
 				break;
 			default:

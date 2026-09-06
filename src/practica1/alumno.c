@@ -95,3 +95,54 @@ void ordenarAlumno(void *a, void *b)
 			ordenarLista(&lista, compararCompararPromedio, ASCENDENTE);
 	}
 }
+void buscarAlumno(void *a, void *b) {
+	Lista lista= *(Lista*)a;;
+	int opcion = *(int*)b;
+	Alumno alumno;
+	fn_comparar comparar;
+
+	if (!lista.inicio) {
+		return;
+	}
+
+	if (opcion == 1)
+	{ //buscar por nombre
+
+		printf("Ingrese nombre del alumno: ");
+		scanf("%s", alumno.nombre);
+		comparar = compararNombre;
+	}
+	if (opcion ==2 )
+	{ //buscar por matricula
+		printf("Ingrese matricula del alumno: ");
+		scanf("%zu", &alumno.matricula);
+		comparar = compararMatricula;
+	}
+	if (opcion == 3)
+	{
+		//buscar por semestre
+		printf("Ingrese semestre del alumno: ");
+		scanf("%d", &alumno.semestre);
+		comparar = compararSemestre;
+	}
+	if (opcion == 4)
+	{ // buscar por promedio
+		printf("Ingrese promedio del alumno: ");
+		scanf("%f", &alumno.promedio);
+		comparar = compararCompararPromedio;
+	}
+
+	Nodo *actual = lista.inicio;
+
+	while (actual!=NULL)
+	{
+		if (comparar(actual->dato,&alumno)==0)
+		{
+			printf("Alumno encontrado: ");
+			imprimirAlumno(actual->dato);
+			printf("\n");
+			return;
+		}
+		actual = actual->sig;
+	}
+}

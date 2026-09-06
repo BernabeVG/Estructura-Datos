@@ -4,6 +4,8 @@
 #include <iostring.h>
 #include <string.h>
 
+#include "Nodo.h"
+
 #define ALUMNO_H
 #define MAX 64
 
@@ -23,5 +25,6 @@ int compararNombre(void*,void*);
 int compararSemestre(void*,void*);
 int compararCompararPromedio(void*,void*);
 void ordenarAlumno(void *a, void *b);
+void buscarAlumno(void *a, void *b);
 
 #endif
