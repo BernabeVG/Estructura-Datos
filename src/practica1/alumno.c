@@ -7,12 +7,14 @@
 
 Alumno *crearAlumno(size_t matricula)
 {
+
 	Alumno *nuevo = calloc(1,sizeof(Alumno));
 	nuevo->matricula = matricula;
 	clear_buffer();
 	inputCadena("Captura cadena: ",nuevo->nombre,MAX);
 	inputEntero("Captura semestre: ",&nuevo->semestre);
 	inputFloat("Captura promedio: ",&nuevo->promedio);
+
 	return nuevo;
 }
 
@@ -69,30 +71,30 @@ int compararCompararPromedio(void *a, void *b) {
 }
 void ordenarAlumno(void *a, void *b)
 {
-	Lista lista = *(Lista*)a;
+	Lista *lista = (Lista *)a;
 	int opcion = *(int*)b;
 
-	if (!lista.inicio)
+	if (!lista || !lista->inicio)
 	{
 		return;
 	}
 
 	if (opcion == 1)
 	{ //Ordenar por nombre
-		ordenarLista(&lista, compararNombre, ASCENDENTE);
+		ordenarLista(lista, compararNombre, ASCENDENTE);
 	}
-	if (opcion ==2 )
+	if (opcion == 2 )
 	{ //ordenar por matricula
-		ordenarLista(&lista, compararMatricula, ASCENDENTE);
+		ordenarLista(lista, compararMatricula, ASCENDENTE);
 	}
 	if (opcion == 3)
 	{
 		//ordenar por semestre
-		ordenarLista(&lista, compararSemestre, ASCENDENTE);
+		ordenarLista(lista, compararSemestre, ASCENDENTE);
 	}
 	if (opcion == 4)
 	{ // Ordenar por promedio
-			ordenarLista(&lista, compararCompararPromedio, ASCENDENTE);
+			ordenarLista(lista, compararCompararPromedio, ASCENDENTE);
 	}
 }
 void buscarAlumno(void *a, void *b) {

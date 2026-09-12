@@ -44,8 +44,8 @@ int main(void)
 			{
 				size_t mat = 0;
 				printf("\nIngresa la matricula: ");
-				scanf("%u", (unsigned int*)&mat);
-				insertarFinal(&lista, crearAlumno(mat));
+				scanf("%zu", &mat);
+				insertarOrdenado(&lista, crearAlumno(mat));
 				break;
 			}
 

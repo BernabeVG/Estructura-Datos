@@ -108,4 +108,63 @@ void ordenarLista(Lista *lista,fn_comparar comparar,Orden orden)
 			swapNodo(i,cmp);
 	}
 }
+void insertarOrdenado(Lista *lista, void *dato)
+{
+	if (!lista) return;
+
+	// Si no se ha ordenado, se va al final
+	if (!lista->comparar || lista->orden == NINGUNO)
+	{
+		insertarFinal(lista, dato);
+		return;
+	}
+
+	if (!lista->inicio)
+	{
+		insertarFinal(lista, dato);
+		return;
+	}
+	//Ordenamiento de comparacion
+	fn_comparar comparar = lista->comparar;
+	Nodo *anterior = NULL;
+	Nodo *actual = lista->inicio;
+
+	for ( ; actual != NULL; anterior = actual, actual = actual->sig)
+	{
+		int comp = comparar(dato, actual->dato);
+
+
+		if (lista->orden == ASCENDENTE && comp < 0)
+		{
+			break;
+		}
+
+		if (lista->orden == DESCENDENTE && comp > 0)
+		{
+			break;
+		}
+	}
+
+	if (anterior == NULL)
+	{
+		Nodo *nuevo = crearNodo(dato);
+		if (!nuevo) return;
+		nuevo->sig = lista->inicio;
+		lista->inicio = nuevo;
+		lista->cant++;
+	}
+	else if (actual == NULL)
+	{
+		insertarFinal(lista, dato);
+	}
+
+	else
+	{
+		Nodo *nuevo = crearNodo(dato);
+		if (!nuevo) return;
+		nuevo->sig = actual;
+		anterior->sig = nuevo;
+		lista->cant++;
+	}
+}
 
