@@ -157,8 +157,7 @@ void insertarOrdenado(Lista *lista, void *dato)
 	{
 		insertarFinal(lista, dato);
 	}
-
-	else
+				else
 	{
 		Nodo *nuevo = crearNodo(dato);
 		if (!nuevo) return;
