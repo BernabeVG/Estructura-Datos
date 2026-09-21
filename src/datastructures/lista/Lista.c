@@ -95,6 +95,7 @@ void ordenarLista(Lista *lista,fn_comparar comparar,Orden orden)
 	if(orden == NINGUNO)
 		return;
 	for( Nodo *i = lista->inicio ; i ; i = i->sig)
+
 	{
 		Nodo *cmp = i;
 		for( Nodo *j = i->sig ; j ; j = j->sig)

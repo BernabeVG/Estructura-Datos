@@ -24,5 +24,5 @@ Canciones cargarCanciones(void);
 void imprimirCanciones(Canciones);
 void imprimirCancion(void*);
 void imprimirNombre(void*);
-
+Cancion *obtenerCancion(Canciones canciones,size_t pos);
 #endif

@@ -64,7 +64,7 @@ Nodo* dequeueN(Cola *cola)
 
 void imprimirCola(Cola cola,fn_imprimir imprimir)
 {
-	printf("\n [%d] Cola: ",cola.cant);
+	printf("\n [%zu] Cola: ",cola.cant);
 	for(int i = 0; i < cola.cant ; i++)
 	{
 		Nodo *viejoInicio = dequeueN(&cola);

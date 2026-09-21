@@ -83,7 +83,7 @@ Nodo* popN(Pila *pila)
 void imprimirPila(Pila pila,fn_imprimir imprimir)
 {
 	Pila pilaAux = inicializarPila(pila.limite);
-	printf("\n [%d] Pila:",pila.cant);
+	printf("\n [%zu] Pila:",pila.cant);
 	while( !pilaVacia(pila) )
 	{
 		Nodo *aux = popN(&pila);

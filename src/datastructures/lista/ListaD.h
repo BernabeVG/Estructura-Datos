@@ -24,6 +24,8 @@ void insertarInicioD(ListaD *lista,void *dato);
 void insertarFinalD(ListaD *lista,void *dato);
 int buscarDatoD(ListaD lista,void *dato,fn_comparar comparar);
 void ordenarListaD(ListaD *lista,fn_comparar comparar,Orden orden);
+void convertirBucleD(ListaD *lista, int dato);
+
 
 
 

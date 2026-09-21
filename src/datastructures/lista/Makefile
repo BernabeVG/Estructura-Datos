@@ -7,5 +7,6 @@ output = ../../../lib/libLista.a
 
 build :
 	gcc $(cflags) $(source) $(includes)
+	-rm "$(output)"
 	ar rcs $(output) $(source_o) $(sourceNodo) 
 	@echo "Compilo Exitosamente!!!"
