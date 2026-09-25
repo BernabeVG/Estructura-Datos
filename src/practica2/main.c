@@ -146,10 +146,56 @@ int main(void)
                                 break;
                         case 5:
                                 //SE MUESTRA UN MENU CON LAS CANCIONES DE LA COLA DE REPRODUCCION
-                                //SE SELECCIONA UNA OPCION Y SE ELIMINA
+										printf("---Cola de Reproduccion---\n");
+										Nodod *aux = lista.inicio;
+										for (size_t  i=0; i<lista.cant &&aux != NULL;i++) {
+											printf("\n [%zu] ", i);
+											imprimirCancion(aux->dato);
+											aux= aux->sig;
+										}
+										//SE SELECCIONA UNA OPCION Y SE ELIMINA
+										printf("\nIngrese el ID de la cancion que desea Quitar: ");
+										scanf("%d", &idCancion);
+
+										if (idCancion >= 0 && (size_t)idCancion < lista.cant) {
+											aux = lista.inicio;
+
+											for (size_t i = 0; i < lista.cant && aux != NULL; i++) {
+												if (i == (size_t)idCancion) {
+													printf("\n[Cancion eliminada: ] ");
+													imprimirCancion(aux->dato);
+
+													// Reconectar enlaces
+													if (aux->ant != NULL) {
+														aux->ant->sig = aux->sig;
+													} else {
+														lista.inicio = aux->sig;
+													}
+
+													if (aux->sig != NULL) {
+														aux->sig->ant = aux->ant;
+													} else {
+														lista.fin = aux->ant;
+													}
+
+													free(aux);
+													lista.cant--;
+													break;
+												}
+												aux = aux->sig;
+											}
+										} else {
+											printf("\nID invalido o fuera de rango.\n");
+										}
+
                                 break;
                         case 6:
                         //LA POSICION ACTUAL CAMBIA AL INICIO DE LA COLA DE REPRODUCCION
+						actual = lista.inicio;
+						printf("\n---Reproduccion reiniciada.---\n");
+						printf("Reproduccion actual: ");
+						imprimirCancion(actual->dato);
+
                         break;
                         case 7:
                                 corre_programa=0;
