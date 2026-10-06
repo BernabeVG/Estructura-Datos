@@ -85,5 +85,16 @@ void eliminarCola(Cola *cola,fn_free liberar)
 
 int buscarDatoCola(Cola cola,void *dato,fn_comparar comparar)
 {
+	if (!cola.inicio)
+		return 0;
+	Nodo *buscar = cola.inicio;
+
+	for (size_t i=0; i<cola.cant; i++)
+	{
+		if (comparar(buscar->dato,dato)==0) {
+			return 1;
+		}
+		buscar=buscar->sig;
+	}
 	return 0;
 }

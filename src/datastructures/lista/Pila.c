@@ -108,7 +108,23 @@ void eliminarPila(Pila *pila,fn_free liberar)
 }
 int buscarDatoPila(Pila pila,void *dato,fn_comparar comparar)
 {
-	return 0;
+	if (pilaVacia(pila) || !comparar)
+		return 0;
+	Pila pilaAux=inicializarPila(pila.limite);
+	int encontrado =0;
+
+		while (!pilaVacia(pila)) {
+			Nodo *aux = popN(&pila);
+
+			if (!encontrado && comparar(aux->dato,dato)==0) {
+				encontrado=1;
+			}
+			pushN(&pilaAux,aux);
+		}
+	while (!pilaVacia(pilaAux)) {
+		pushN(&pila, popN(&pilaAux));
+	}
+	return encontrado;
 }
 
 

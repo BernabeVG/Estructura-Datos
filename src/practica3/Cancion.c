@@ -17,7 +17,7 @@ Canciones cargarCanciones(void)
 
 void imprimirCanciones(Canciones canciones)
 {
-	printf("\n Canciones TOTAL:%d",canciones.cant);
+	printf("\n Canciones TOTAL:%ld",canciones.cant);
 	for(int i = 0 ; i< canciones.cant; i++)
 	{
 		printf("\n[%d]",i);
