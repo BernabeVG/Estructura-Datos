@@ -127,13 +127,18 @@ int validacionParentesis(Pila pila, char *cadena) {
 		return 0;
 
 	char caracter;
+	int cadenaValida=0; //valdiacion
 
 	for (int i=0; cadena[i] != '\0'; i++)
 	{
 		if (cadena[i] == '('|| cadena[i] == '['|| cadena[i] ==  '{') {
 			push(&pila, &cadena[i]);
+			//si solo se encuentra un caracter  de cadena, entonces
+			//sigue siendo cadenaValida=0 y si no encuentra cierre,
+			//la cadena retornara su valor original que es 0
 		}
-		if (cadena[i] == ')'|| cadena[i] == ']'|| cadena[i] == '}') {
+		if (cadena[i] == ')'|| cadena[i] == ']'|| cadena[i] == '}')
+		{
 			if (pilaVacia(pila)) {
 				eliminarPila(&pila, NULL);
 				return 0;
@@ -142,12 +147,16 @@ int validacionParentesis(Pila pila, char *cadena) {
 			// Se verifica si NO coinciden como pareja opuesta
 			if ((cadena[i] == ')' && caracter != '(') ||
 				(cadena[i] == ']' && caracter != '[') ||
-				(cadena[i] == '}' && caracter != '{')) {
+				(cadena[i] == '}' && caracter != '{'))
+			{
 				eliminarPila(&pila, NULL);
 				return 0;
-				}
+			}
+			// si  encontro coincidencia en cadena entonces cadenaValida=1
+			// y posteriormente retorna 1
+			cadenaValida=1;
 		}
 	}
 	eliminarPila(&pila,NULL);
-	return 1;
+	return cadenaValida;
 }
