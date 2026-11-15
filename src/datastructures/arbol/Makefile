@@ -1,6 +1,6 @@
 cflags = -Wall -Werror -std=c99 -O2 -c
 includes = -I ../nodo -I ../lista
-sourceNodo = ../nodo/Nodo.o ../lista/Pila.o
+sourceNodo = ../nodo/Nodo.o ../lista/pila.o
 source = $(wildcard *.c)
 source_o = $(wildcard *.o)
 output = ../../../lib/libArbol.a

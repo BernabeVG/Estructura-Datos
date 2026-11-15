@@ -230,7 +230,7 @@ void imprimir_arbol(Nodoa* nodo, int nivel,fn_imprimir imprimir)
 {
     int i;
     if (nodo != NULL)
-        {
+    {
         printf(" ");
 		imprimir(nodo->dato);
         if(nodo->dch)
@@ -269,47 +269,4 @@ void imprimir_arbol(Nodoa* nodo, int nivel,fn_imprimir imprimir)
 void imprimirArbol(Arbol arbol,fn_imprimir imprimir)
 {
 	imprimir_arbol(arbol.raiz,0,imprimir);
-}
-
-//insertar Arbol
-void insertarArbolO(Arbol* arbol, void *dato)
-{
-	if (!arbol)
-		return;
-	Nodoa *nuevo = crearNodoa(dato);
-	if (!nuevo)
-		return;
-
-	if (!arbol->raiz) {
-		arbol->raiz = nuevo;
-		arbol->cant++;
-		return;
-	}
-	Pila pila = inicializarPila(-1);
-	Nodoa *actual = arbol->raiz;
-	Nodoa *padre = NULL;
-	int comparacion = 0;
-
-	while (actual != NULL)
-	{
-		push(&pila, actual);
-		padre = actual;
-		comparacion = ((fn_comparar)arbol->orden)(dato, actual->dato);
-
-		if (comparacion == 0) {
-			free(nuevo);
-			eliminarPila(&pila, NULL);
-			return;
-		}
-		if (comparacion < 0)
-			actual = actual->izq;
-		else
-			actual = actual->dch;
-	}
-	if (comparacion < 0)
-		padre->izq = nuevo;
-	else
-		padre->dch = nuevo;
-	arbol->cant++;
-	eliminarPila(&pila, NULL);
 }
