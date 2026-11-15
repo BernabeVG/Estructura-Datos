@@ -26,4 +26,4 @@ size_t alturaI(Arbol);
 void imprimirOrden(Arbol arbol,fn_imprimir,int opcion);
 void imprimirArbol(Arbol arbol,fn_imprimir imprimir);
 
-#endif
+#endif 
