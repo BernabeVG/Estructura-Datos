@@ -6,6 +6,11 @@
 
 #include "Lista.h"
 
+typedef struct {
+	char nombre[50];
+	int paginas;
+}Archivo;
+
 int *crearEntero(int);
 int compararEntero(void *a, void *b);
 void imprimir(void*);
@@ -290,7 +295,7 @@ void eliminarDatoArbol(Arbol *arbol, void *dato, fn_comparar comparar)
     Nodoa *actual = arbol->raiz;
     int comparacion = 0;
 
-    // 1. Buscar el nodo guardandotodo el recorrido de ancestros en la Pila
+    // Buscar el nodo guardandotodo el recorrido de ancestros en la Pila
     while (actual != NULL)
     {
         comparacion = comparar(dato, actual->dato) * sentido;
@@ -320,7 +325,7 @@ void eliminarDatoArbol(Arbol *arbol, void *dato, fn_comparar comparar)
         return;
     }
 
-    // 2. Caso con 2 hijos: bajar al sucesor inorden apilando el camino
+    // Caso con 2 hijos: bajar al sucesor inorden apilando el camino
     if (actual->izq != NULL && actual->dch != NULL)
     {
         push(&pila, actual);
@@ -345,7 +350,7 @@ void eliminarDatoArbol(Arbol *arbol, void *dato, fn_comparar comparar)
         free(actual->dato);
     }
 
-    // 3. Obtener al padre directo desde la cima de la Pila (NULL si era la raíz)
+    // Obtener al padre directo desde la cima de la Pila (NULL si era la raíz)
     Nodoa *padre = NULL;
     if (!pilaVacia(pila))
     {

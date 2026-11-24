@@ -27,7 +27,8 @@ void imprimirHeap(Heap*,fn_imprimir);
 
 void intercambio(Heap*,Pila,int*);
 void heapify_up(Heap *);
-void heapify(Heap*) __attribute__((alias("heapify_up")));
+void heapify(Heap*);
+//void heapify(Heap*) __attribute__((alias("heapify_up")));
 /*
 typedef void (*Heapify)(Heap*);
 const Heapify heapify = heapify_up;

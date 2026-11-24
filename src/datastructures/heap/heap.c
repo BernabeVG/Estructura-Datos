@@ -86,7 +86,10 @@ void heapify_up(Heap *heap)
 	free(arrNum);	
 }
 
-
+void heapify(Heap *heap)
+{
+	heapify_up(heap);
+}
 void heapify_down(Heap *heap)
 {
 	int *arrNum = calloc((heap->cant/2),sizeof(int));

@@ -1,6 +1,6 @@
 cflags = -Wall -Werror -std=c99 -O2 -c
 includes = -I ../nodo -I ../lista -I ../arbol
-sourceNodo = ../nodo/Nodo.o ../lista/pila.o ../arbol/arbol.o
+sourceNodo = ../nodo/Nodo.o ../lista/Pila.o ../arbol/arbol.o
 source = $(wildcard *.c)
 source_o = $(wildcard *.o)
 output = ../../../lib/libHeap.a
